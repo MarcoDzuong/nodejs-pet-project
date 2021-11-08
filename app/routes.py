@@ -1,6 +1,6 @@
+from app import app
 from flask import Flask, request, jsonify
-app = Flask(__name__)
-@app.route('/v1/home/', methods=['GET'])
+@app.route('/homes/', methods=['GET'])
 def getTabHome():
     null = None
     res ={}
@@ -161,6 +161,7 @@ def getTabHome():
     ]
     }
     return jsonify(res)
+
 @app.route('/getmsg/', methods=['GET'])
 def respond():
     # Retrieve the name from url parameter
@@ -204,7 +205,3 @@ def post_something():
 @app.route('/')
 def index():
     return "<h1>Welcome to our server !!</h1>"
-
-if __name__ == '__main__':
-    # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
