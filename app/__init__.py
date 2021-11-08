@@ -7,3 +7,5 @@ server.config.from_object(Config)
 # db = SQLAlchemy(app)
 # migrate = Migrate(server, db)
 from app import routes, models
+if __name__ == '__main__':
+  server.run()
