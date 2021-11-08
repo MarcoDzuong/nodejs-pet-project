@@ -1,6 +1,6 @@
-from app import app
+from app import server
 from flask import Flask, request, jsonify
-@app.route('/homes/', methods=['GET'])
+@server.route('/homes/', methods=['GET'])
 def getTabHome():
     null = None
     res ={}
@@ -162,7 +162,7 @@ def getTabHome():
     }
     return jsonify(res)
 
-@app.route('/getmsg/', methods=['GET'])
+@server.route('/getmsg/', methods=['GET'])
 def respond():
     # Retrieve the name from url parameter
     name = request.args.get("name", None)
@@ -185,7 +185,7 @@ def respond():
     # Return the response in json format
     return jsonify(response)
 
-@app.route('/post/', methods=['POST'])
+@server.route('/post/', methods=['POST'])
 def post_something():
     param = request.form.get('name')
     print(param)
@@ -202,6 +202,6 @@ def post_something():
         })
 
 # A welcome message to test our server
-@app.route('/')
+@server.route('/')
 def index():
     return "<h1>Welcome to our server !!</h1>"
